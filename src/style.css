@@ -1,3 +1,67 @@
-body{
-    background-color: rebeccapurple;
+:root {
+    --body :   #FBEFEF;
+    --sideBarcolor : #F5AFAF;
+    --textColour: #0C2B4E;
+    --headerColour :#F9DFDF ;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  font-family: "Roboto", sans-serif;
+  color: var(--textColour);
+}
+
+#sideBar {
+    background-color: var(--sideBarcolor);
+    height: 100vh;
+    padding: 10px;
+}
+
+.con {
+    display: flex;
+    justify-content: space-around;
+}
+
+#content {
+    background-color: var(--body);
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid var(--sideBarcolor);
+    background-color: var(--headerColour);
+    height: 100px;
+}
+
+button {
+     font-family: "Roboto", sans-serif;
+     font-weight: bolder;
+     background-color: var(--body);
+     border-radius: 10px;
+}
+
+#myProjects {
+     margin-top: 30px;
+}
+
+.project {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--headerColour);
+    text-align: center;
+    border: 1px solid black;
+    width: auto;
+    border-radius: 10px;
+    padding: 10px;
+   
 }

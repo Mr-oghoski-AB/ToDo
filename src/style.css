@@ -48,6 +48,7 @@ button {
      font-weight: bolder;
      background-color: var(--body);
      border-radius: 10px;
+     cursor: pointer;
 }
 
 #myProjects {
@@ -63,5 +64,42 @@ button {
     width: auto;
     border-radius: 10px;
     padding: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
    
+}
+
+#myTodo {
+    margin-top: 20px;
+    padding: 30px;
+}
+
+.todo {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    align-items: center;
+    border: 1px solid var(--sideBarcolor);
+    background-color: var(--headerColour);
+    border-radius: 10px;
+    min-height: 100px;
+    margin-bottom: 20px;
+}
+
+input{
+    cursor: pointer;
+}
+
+.subSection  {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.subSection input{
+    border-radius: 10px;
+    padding: 10px;
+    cursor: text;
+}
+.subSection button{
+    width: 20px;
 }

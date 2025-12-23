@@ -1,10 +1,11 @@
 import { create } from "./todoCreation";
 import { renderModule } from "./render";
+import { switchProject } from "./projectSwitch";
 
 const addTask = (function () {
   const dialog = document.querySelector("dialog");
   const add = document.querySelector("#addTask");
-  const submitBtn = document.querySelector("#submitBtn");
+  //   const submitBtn = document.querySelector("#submitBtn");
   const form = document.querySelector("dialog form");
 
   add.addEventListener("click", (e) => {
@@ -17,9 +18,18 @@ const addTask = (function () {
     let description = document.querySelector("#Description").value;
     let dueDate = document.querySelector("#Due-Date").value;
     let priority = document.querySelector("#Priority").value;
+    const activeProject = switchProject.getActiveProject();
 
-    create.add(title, description, dueDate, priority);
-    renderModule.renderTodos();    // 🔥 trigger DOM update;
+    create.add(
+      switchProject.projectList[activeProject],
+      title,
+      description,
+      dueDate,
+      priority
+    );
+    
+    
+    renderModule.renderTodos(); // 🔥 trigger DOM update;
     dialog.close();
     form.reset();
   });

@@ -1,3 +1,5 @@
+import { switchProject } from "./projectSwitch";
+
 const createProject = (function () {
   const myProjects = document.getElementById("myProjects");
   const sideBar = document.getElementById("sideBar");
@@ -23,14 +25,16 @@ const createProject = (function () {
     const name = document.createElement("p");
     const delBtn = document.createElement("button");
 
-    div.classList = "project";
+    div.classList.add('project');
     name.textContent = inputName.value;
     delBtn.textContent = "del";
 
     div.append(name, delBtn);
 
     myProjects.appendChild(div);
-    inputName.value = ""
+    switchProject.loopProjects();
+    console.log(switchProject.projectList)
+    inputName.value = "";
     form.remove()
   });
 })();

@@ -1,5 +1,5 @@
 const create = (function () {
-  const todos = [ 
+  const Default = [ 
     {
         title : "Finish odin project",
         description: "finish all the course and contents of odin project",
@@ -34,12 +34,15 @@ const create = (function () {
     }
   }
 
- const add = (title, description, dueDate, priority, check) => {
-    todos.push(new createTodo(title, description, dueDate, priority, check));
+ const add = (projectArray,title, description, dueDate, priority, check) => {
+    projectArray.push(new createTodo(title, description, dueDate, priority, check));
+
+    // console.log(projectArray);
+    
   };
 
   return {
-    todos,
+    Default,
     add
   }
 })();

@@ -1,19 +1,21 @@
 import { create } from "./todoCreation";
+import { switchProject } from "./projectSwitch";
 
 const renderModule = (function () {
   const renderTodos = function () {
     const myTodo = document.getElementById("myTodo");
     myTodo.innerHTML = ""; // clear previous DOM
+    const activeProject = switchProject.getActiveProject();
+  
 
-    console.log(create.todos);
-
-    create.todos.forEach((Element) => {
+    switchProject.projectList[activeProject].forEach((Element) => {
       const todo = document.createElement("div");
       const checkBox = document.createElement("input");
       const div = document.createElement("div");
       const divBtn = document.createElement("div");
       const del = document.createElement("button");
       const edit = document.createElement("button");
+      
 
       del.textContent = "del";
       edit.textContent = "edit";

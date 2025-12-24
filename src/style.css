@@ -188,3 +188,8 @@ dialog form{
     font-size: 20px;
 
 }
+
+.todo input[type="checkbox"]:checked + div > :first-child {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

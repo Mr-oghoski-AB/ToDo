@@ -6,7 +6,6 @@ const renderModule = (function () {
     const myTodo = document.getElementById("myTodo");
     myTodo.innerHTML = ""; // clear previous DOM
     const activeProject = switchProject.getActiveProject();
-  
 
     switchProject.projectList[activeProject].forEach((Element) => {
       const todo = document.createElement("div");
@@ -15,11 +14,18 @@ const renderModule = (function () {
       const divBtn = document.createElement("div");
       const del = document.createElement("button");
       const edit = document.createElement("button");
-      
 
       del.textContent = "del";
       edit.textContent = "edit";
       checkBox.type = "checkbox";
+
+      checkBox.checked = Element.check === true;
+
+      checkBox.addEventListener("change", () => {
+        Element.check = checkBox.checked;
+        console.log(Element);
+      });
+
 
       [
         Element.title,
@@ -42,8 +48,8 @@ const renderModule = (function () {
   };
 
   return {
-    renderTodos
-  }
+    renderTodos,
+  };
 })();
 
 export { renderModule };

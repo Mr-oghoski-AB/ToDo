@@ -1,8 +1,10 @@
 import { create } from "./todoCreation";
 import { renderModule } from "./render";
+import { editFunc } from "./editTodo";
 
 const switchProject = (function () {
-  const projectList = { Default: create.Default };
+  const projectList = {};
+  projectList["Default"] = create.Default;
   let activeProject = "Default";
 
    function setActiveProject(name) {
@@ -24,6 +26,7 @@ const switchProject = (function () {
       item.addEventListener("click", (e) => {
         setActiveProject(name);
         renderModule.renderTodos();
+        editFunc.runEdit()
         return activeProject
       });
     });

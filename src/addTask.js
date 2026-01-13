@@ -1,18 +1,33 @@
 import { create } from "./todoCreation";
 import { renderModule } from "./render";
 import { switchProject } from "./projectSwitch";
+import { editFunc } from "./editTodo";
 
 const addTask = (function () {
   const dialog = document.querySelector("dialog");
   const add = document.querySelector("#addTask");
-  //   const submitBtn = document.querySelector("#submitBtn");
+  const submitBtn = document.querySelector("#submitBtn");
   const form = document.querySelector("dialog form");
 
   add.addEventListener("click", (e) => {
     dialog.showModal();
+    const editBtn = document.querySelector(".editBtn");
+    if (form.contains(editBtn)) {
+      console.log(editBtn);
+      console.log(submitBtn);
+
+      document.querySelector("#Tittle").value = '';
+      document.querySelector("#Description").value = '';
+      document.querySelector("#Due-Date").value = '';
+      document.querySelector("#Priority").value = '';
+      editBtn.remove();
+      form.appendChild(submitBtn);
+    } else {
+      console.log("not there");
+    }
   });
 
-  form.addEventListener("submit", (e) => {
+  submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     let title = document.querySelector("#Tittle").value;
     let description = document.querySelector("#Description").value;
@@ -27,9 +42,9 @@ const addTask = (function () {
       dueDate,
       priority
     );
-    
-    
+
     renderModule.renderTodos(); // 🔥 trigger DOM update;
+    editFunc.runEdit();
     dialog.close();
     form.reset();
   });

@@ -1,4 +1,3 @@
-import { create } from "./todoCreation";
 import { switchProject } from "./projectSwitch";
 
 const renderModule = (function () {
@@ -7,7 +6,7 @@ const renderModule = (function () {
     myTodo.innerHTML = ""; // clear previous DOM
     const activeProject = switchProject.getActiveProject();
 
-    switchProject.projectList[activeProject].forEach((Element) => {
+    switchProject.projectList[activeProject].forEach((Element, index) => {
       const todo = document.createElement("div");
       const checkBox = document.createElement("input");
       const div = document.createElement("div");
@@ -26,6 +25,9 @@ const renderModule = (function () {
         console.log(Element);
       });
 
+      edit.classList.add("edit");
+      edit.dataset.project = activeProject;
+      edit.dataset.index = index;
 
       [
         Element.title,

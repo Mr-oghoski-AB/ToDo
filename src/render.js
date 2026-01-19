@@ -15,6 +15,10 @@ const renderModule = (function () {
       const edit = document.createElement("button");
 
       del.textContent = "del";
+      del.classList.add('delete');
+      del.dataset.project = activeProject;
+      del.dataset.index = index;  
+
       edit.textContent = "edit";
       checkBox.type = "checkbox";
 

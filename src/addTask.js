@@ -2,6 +2,7 @@ import { create } from "./todoCreation";
 import { renderModule } from "./render";
 import { switchProject } from "./projectSwitch";
 import { editFunc } from "./editTodo";
+import { deleteTodo } from "./deleteTodo";
 
 const addTask = (function () {
   const dialog = document.querySelector("dialog");
@@ -45,6 +46,7 @@ const addTask = (function () {
 
     renderModule.renderTodos(); // 🔥 trigger DOM update;
     editFunc.runEdit();
+    deleteTodo.runDelete();
     dialog.close();
     form.reset();
   });

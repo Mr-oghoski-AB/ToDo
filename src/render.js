@@ -6,6 +6,8 @@ const renderModule = (function () {
     myTodo.innerHTML = ""; // clear previous DOM
     const activeProject = switchProject.getActiveProject();
 
+    if (!switchProject.projectList[activeProject]) return;
+
     switchProject.projectList[activeProject].forEach((Element, index) => {
       const todo = document.createElement("div");
       const checkBox = document.createElement("input");
@@ -14,7 +16,7 @@ const renderModule = (function () {
       const del = document.createElement("button");
       const edit = document.createElement("button");
 
-      del.textContent = "del";
+      del.textContent = "✖";
       del.classList.add('delete');
       del.dataset.project = activeProject;
       del.dataset.index = index;  

@@ -1,5 +1,5 @@
 import { switchProject } from "./projectSwitch";
-import { setEditContext } from "./editstate";
+import { setEditContext } from "./editState";
 
 const editFunc = (function () {
 

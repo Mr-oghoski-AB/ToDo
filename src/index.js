@@ -7,6 +7,8 @@ import { switchProject } from "./projectSwitch";
 import { editFunc } from "./editTodo";
 import { deleteTodo } from "./deleteTodo";
 import { removeProject } from "./deleteProject";
+import { cancelTask } from "./cancelTask";
+
 
 
   document.addEventListener("DOMContentLoaded", () => {

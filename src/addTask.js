@@ -1,8 +1,8 @@
-import { getEditContext, clearEditContext } from "./editstate";
+import { getEditContext, clearEditContext } from "./editState";
 import { create } from "./todoCreation";
 import { renderModule } from "./render";
 import { switchProject } from "./projectSwitch";
-import { editFunc } from "./editTodo";
+
 
 const addTask = (function () {
   const dialog = document.querySelector("dialog");
@@ -11,7 +11,7 @@ const addTask = (function () {
   const form = document.querySelector("dialog form");
 
   add.addEventListener("click", (e) => {
-    clearEditContext(); // ensure ADD mode
+     clearEditContext(); // ensure ADD mode
     form.reset();
     dialog.showModal();
     const editBtn = document.querySelector(".editBtn");
@@ -19,10 +19,10 @@ const addTask = (function () {
       console.log(editBtn);
       console.log(submitBtn);
 
-      document.querySelector("#Tittle").value = "";
-      document.querySelector("#Description").value = "";
-      document.querySelector("#Due-Date").value = "";
-      document.querySelector("#Priority").value = "";
+      document.querySelector("#Tittle").value = '';
+      document.querySelector("#Description").value = '';
+      document.querySelector("#Due-Date").value = '';
+      document.querySelector("#Priority").value = '';
       editBtn.remove();
       form.appendChild(submitBtn);
     } else {
@@ -37,7 +37,7 @@ const addTask = (function () {
     let dueDate = document.querySelector("#Due-Date").value;
     let priority = document.querySelector("#Priority").value;
 
-    const editContext = getEditContext();
+     const editContext = getEditContext();
 
     if (editContext) {
       // ✏️ EDIT
@@ -54,14 +54,14 @@ const addTask = (function () {
       // ➕ ADD
       const activeProject = switchProject.getActiveProject();
 
-      create.add(
-        switchProject.projectList[activeProject],
-        title,
-        description,
-        dueDate,
-        priority,
-      );
-    }
+    create.add(
+      switchProject.projectList[activeProject],
+      title,
+      description,
+      dueDate,
+      priority
+    );
+  }
 
     renderModule.renderTodos(); // 🔥 trigger DOM update;
     // editFunc.runEdit();

@@ -1,8 +1,10 @@
 import { switchProject } from "./projectSwitch";
 import { format, compareAsc, formatDate } from "date-fns";
+import { storage } from "./webStorage";
 
 const renderModule = (function () {
   const renderTodos = function () {
+    storage.load();
     const myTodo = document.getElementById("myTodo");
     myTodo.innerHTML = ""; // clear previous DOM
     const activeProject = switchProject.getActiveProject();

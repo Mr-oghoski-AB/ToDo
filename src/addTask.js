@@ -2,6 +2,7 @@ import { getEditContext, clearEditContext } from "./editState";
 import { create } from "./todoCreation";
 import { renderModule } from "./render";
 import { switchProject } from "./projectSwitch";
+import { storage } from "./webStorage";
 
 const addTask = (function () {
   const dialog = document.querySelector("dialog");
@@ -12,9 +13,9 @@ const addTask = (function () {
   add.addEventListener("click", (e) => {
     clearEditContext(); // ensure ADD mode
     console.log(switchProject.getActiveProject());
-    
+
     if (switchProject.getActiveProject() == undefined) {
-      alert('please select a project')
+      alert("please select a project");
       return;
     } else {
       form.reset();
@@ -55,6 +56,8 @@ const addTask = (function () {
       todo.dueDate = dueDate;
       todo.priority = priority;
 
+      storage.save();
+
       clearEditContext();
     } else {
       // ➕ ADD
@@ -67,10 +70,9 @@ const addTask = (function () {
         dueDate,
         priority,
       );
+      storage.save();
     }
-
     renderModule.renderTodos(); // 🔥 trigger DOM update;
-    // editFunc.runEdit();
     dialog.close();
     form.reset();
   });

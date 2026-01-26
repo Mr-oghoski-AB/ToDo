@@ -1,6 +1,7 @@
 import { create } from "./todoCreation";
 import { renderModule } from "./render";
 import { editFunc } from "./editTodo";
+import { storage } from "./webStorage";
 
 const switchProject = (function () {
   const projectList = {};
@@ -21,6 +22,7 @@ const switchProject = (function () {
       const name = item.textContent.trim();
       if (!projectList[name]) {
         projectList[name] = [];
+        storage.save();
       }
 
       item.addEventListener("click", (e) => {

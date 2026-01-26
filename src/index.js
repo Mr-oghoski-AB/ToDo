@@ -8,6 +8,7 @@ import { editFunc } from "./editTodo";
 import { deleteTodo } from "./deleteTodo";
 import { removeProject } from "./deleteProject";
 import { cancelTask } from "./cancelTask";
+import { storage } from "./webStorage";
 
 
 
@@ -16,6 +17,9 @@ import { cancelTask } from "./cancelTask";
     editFunc.runEdit();
     deleteTodo.runDelete();
     removeProject.delProject();
+    storage.load();
+    createProject.renderProjects();
+    console.log(switchProject.projectList)
   });
 
 

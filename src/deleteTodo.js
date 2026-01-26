@@ -1,6 +1,6 @@
 import { switchProject } from "./projectSwitch";
 import { renderModule } from "./render";
-
+import { storage } from "./webStorage";
 
 const deleteTodo = (function () {
   const runDelete = () => {
@@ -13,6 +13,7 @@ const deleteTodo = (function () {
     const todoIndex = e.target.dataset.index;
 
     switchProject.projectList[projectId].splice(todoIndex, 1);
+    storage.save();
     renderModule.renderTodos();
   }
 });

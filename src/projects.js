@@ -1,5 +1,6 @@
 import { switchProject } from "./projectSwitch";
 import { removeProject } from "./deleteProject";
+import { storage } from "./webStorage";
 
 const createProject = (function () {
   const myProjects = document.getElementById("myProjects");
@@ -32,7 +33,8 @@ const createProject = (function () {
     delBtn.textContent = "✖";
 
     div.append(name, delBtn);
-
+ 
+    console.log(switchProject.projectList); 
     myProjects.appendChild(div);
     switchProject.loopProjects();
     removeProject.delProject();
@@ -40,6 +42,34 @@ const createProject = (function () {
     inputName.value = "";
     form.remove();
   });
+
+  const renderProjects = () => {
+  const myProjects = document.getElementById("myProjects");
+  myProjects.innerHTML = ""; // 🔥 clear sidebar first
+
+  for (const projectName in switchProject.projectList) {
+    const div = document.createElement("div");
+    const name = document.createElement("p");
+    const delBtn = document.createElement("button");
+
+    div.classList.add("project");
+    delBtn.classList.add("projDel");
+
+    name.textContent = projectName;
+    delBtn.textContent = "✖";
+    delBtn.dataset.project = projectName;
+
+    div.append(name, delBtn);
+    myProjects.appendChild(div);
+  }
+
+  switchProject.loopProjects();
+  removeProject.delProject();
+};
+
+return {
+  renderProjects
+}
 })();
 
 export { createProject };

@@ -20,7 +20,6 @@ const editFunc = (function () {
       editBtn.textContent = 'EDIT'
       editBtn.classList.add('editBtn')
       form.appendChild(editBtn);
-      return 
     }
 
     const project = e.target.dataset.project;

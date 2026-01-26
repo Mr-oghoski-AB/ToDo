@@ -1,4 +1,5 @@
 import { switchProject } from "./projectSwitch";
+import { format, compareAsc, formatDate } from "date-fns";
 
 const renderModule = (function () {
   const renderTodos = function () {
@@ -17,9 +18,9 @@ const renderModule = (function () {
       const edit = document.createElement("button");
 
       del.textContent = "✖";
-      del.classList.add('delete');
+      del.classList.add("delete");
       del.dataset.project = activeProject;
-      del.dataset.index = index;  
+      del.dataset.index = index;
 
       edit.textContent = "info";
       checkBox.type = "checkbox";
@@ -35,11 +36,10 @@ const renderModule = (function () {
       edit.dataset.project = activeProject;
       edit.dataset.index = index;
 
-      [
-        Element.title,
-        Element.priority,
-        Element.dueDate,
-      ].forEach((text) => {
+      const teDate = new Date(Element.dueDate); 
+      const dueDate = format(teDate, "iii MMM ii RRR");
+
+      [Element.title, Element.priority, dueDate].forEach((text) => {
         const p = document.createElement("p");
         p.textContent = text;
         div.append(p);

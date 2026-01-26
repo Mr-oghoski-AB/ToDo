@@ -40,31 +40,6 @@ const createProject = (function () {
     inputName.value = "";
     form.remove();
   });
-
-  const renderProjects = () => {
-    const projectContainer = document.querySelectorAll(".project");
-    projectContainer.innerHTML = ""; // 🔥 clear DOM
-
-    for (const projectName in switchProject.projectList) {
-      const projectDiv = document.createElement("div");
-      projectDiv.classList.add("project");
-
-      const p = document.createElement("p");
-      p.textContent = projectName;
-
-      const del = document.createElement("button");
-      del.textContent = "✖";
-      del.classList.add("projDel");
-      del.dataset.project = projectName;
-
-      projectDiv.append(p, del);
-      projectContainer.append(projectDiv);
-    }
-  };
-
-  return{
-    renderProjects
-  }
 })();
 
 export { createProject };

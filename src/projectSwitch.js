@@ -36,6 +36,7 @@ const switchProject = (function () {
     projectList,
     loopProjects,
     getActiveProject,
+    setActiveProject
   };
 })();
 

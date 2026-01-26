@@ -3,7 +3,6 @@ import { create } from "./todoCreation";
 import { renderModule } from "./render";
 import { switchProject } from "./projectSwitch";
 
-
 const addTask = (function () {
   const dialog = document.querySelector("dialog");
   const add = document.querySelector("#addTask");
@@ -11,18 +10,25 @@ const addTask = (function () {
   const form = document.querySelector("dialog form");
 
   add.addEventListener("click", (e) => {
-     clearEditContext(); // ensure ADD mode
-    form.reset();
-    dialog.showModal();
+    clearEditContext(); // ensure ADD mode
+    console.log(switchProject.getActiveProject());
+    
+    if (switchProject.getActiveProject() == undefined) {
+      alert('please select a project')
+      return;
+    } else {
+      form.reset();
+      dialog.showModal();
+    }
     const editBtn = document.querySelector(".editBtn");
     if (form.contains(editBtn)) {
       console.log(editBtn);
       console.log(submitBtn);
 
-      document.querySelector("#Tittle").value = '';
-      document.querySelector("#Description").value = '';
-      document.querySelector("#Due-Date").value = '';
-      document.querySelector("#Priority").value = '';
+      document.querySelector("#Tittle").value = "";
+      document.querySelector("#Description").value = "";
+      document.querySelector("#Due-Date").value = "";
+      document.querySelector("#Priority").value = "";
       editBtn.remove();
       form.appendChild(submitBtn);
     } else {
@@ -37,7 +43,7 @@ const addTask = (function () {
     let dueDate = document.querySelector("#Due-Date").value;
     let priority = document.querySelector("#Priority").value;
 
-     const editContext = getEditContext();
+    const editContext = getEditContext();
 
     if (editContext) {
       // ✏️ EDIT
@@ -54,14 +60,14 @@ const addTask = (function () {
       // ➕ ADD
       const activeProject = switchProject.getActiveProject();
 
-    create.add(
-      switchProject.projectList[activeProject],
-      title,
-      description,
-      dueDate,
-      priority
-    );
-  }
+      create.add(
+        switchProject.projectList[activeProject],
+        title,
+        description,
+        dueDate,
+        priority,
+      );
+    }
 
     renderModule.renderTodos(); // 🔥 trigger DOM update;
     // editFunc.runEdit();

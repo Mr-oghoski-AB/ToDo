@@ -16,10 +16,10 @@ const removeProject = (function () {
     document.addEventListener("click", (e) => {
       if (e.target.classList.contains("projDel")) {
         const projectId = e.target.dataset.project;
-        const todoIndex = e.target.dataset.index;
         const projectDiv = e.target.closest(".project");
 
         delete switchProject.projectList[projectId];
+        switchProject.setActiveProject(undefined)
 
         projectDiv.remove();
         // createProject.renderProjects();

@@ -21,7 +21,7 @@ const renderModule = (function () {
       del.dataset.project = activeProject;
       del.dataset.index = index;  
 
-      edit.textContent = "edit";
+      edit.textContent = "info";
       checkBox.type = "checkbox";
 
       checkBox.checked = Element.check === true;
@@ -37,7 +37,6 @@ const renderModule = (function () {
 
       [
         Element.title,
-        Element.description,
         Element.priority,
         Element.dueDate,
       ].forEach((text) => {

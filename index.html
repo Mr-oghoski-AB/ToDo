@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>TODO</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <div id="sideBar">
+      <div class="con">
+        <h2>Projects</h2>
+        <button id="newProject">New project</button>
+      </div>
+      <div id="myProjects">
+        <div class="project">
+          <p>Default</p>
+          <button class="projDel">✖</button>
+        </div>
+      </div>
+    </div>
+    <div id="content">
+      <header>
+        <h1>FOCUS</h1>
+        <button id="addTask">ADD TASK</button>
+      </header>
+      <dialog>
+            <form action="dialog">
+                <div>
+                  <h2>ADD TASK</h2>
+                </div>
+                <div>
+                    <label for="Tittle">Tittle</label>
+                    <input id="Tittle" type="text" name="Tittle" placeholder="Tittle" autofocus required>
+                </div>
+                <div>
+                    <label for="Description">Description</label>
+                    <textarea  id="Description" name="Description" type="text" placeholder="Description" required></textarea>
+                </div>
+                <div>
+                    <label for="Due-Date">Due Date</label>
+                    <input id="Due-Date" name="Due-Date" type="date" placeholder="" required>
+                </div>
+                <div>
+                    <label for="Priority" >Priority</label>
+                    <select name="Priority" class="task-priority" id="Priority" required>
+                      <option value disabled selected>How important is this task</option>
+                      <option value="low"> Not important</option>
+                      <option value="medium">a bit important</option>
+                      <option value="high">super important</option>
+                    </select>
+                </div>
+                <button type="button" id="cancelBtn">Cancel</button>
+                <button type="submit" id="submitBtn" > ADD</button>
+            </form>    
+        </dialog>
+      <div id="myTodo"></div>
+    </div>
+  </body>
+</html>

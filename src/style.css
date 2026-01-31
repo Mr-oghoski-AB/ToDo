@@ -77,14 +77,19 @@ button {
    padding: 10px;
 }
 
+.project p:hover{
+  background-color: #F5AFAF;
+}
+
 #myTodo {
     margin-top: 20px;
     padding: 30px;
 }
 
+
 .todo {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 5fr 2fr;
     align-items: center;
     border: 1px solid var(--sideBarcolor);
     background-color: var(--headerColour);
@@ -92,7 +97,11 @@ button {
     min-height: 100px;
     margin-bottom: 20px;
 }
-
+.todo > :last-child {
+  width: 100px;
+  display: flex;
+  justify-content: space-around;
+}
 input{
     cursor: pointer;
 }
@@ -117,12 +126,13 @@ dialog {
     top: 20%;
     left: 40%;
     height: 200px;
-    background-color: var(--header);
+    background-color: transparent ;
     color: var(--font);
     height: 500px;
     width: 300px;
-    border-radius: 30px;
+    border-radius: 5px;
     animation: fade-out 0.7s ease-out;
+    border: solid 1px black;
 }
 
 ::backdrop {
@@ -192,4 +202,71 @@ dialog form{
 .todo input[type="checkbox"]:checked + div > :first-child {
   text-decoration: line-through;
   opacity: 0.6;
+}
+
+.projDel {
+  color: red;
+  border: none;
+  background-color: var(--headerColour);
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
+.projDel:hover{
+   transform: rotate(360deg) scale(1.1);
+}
+
+svg {
+  width: 15px;
+  height: 15px;
+  color: red;
+}
+
+.high {
+  background-color: pink;
+  width: 50px;
+  border: 2px solid red;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 10px;
+}
+.medium {
+  background-color: rgb(234, 234, 151);
+  width: 50px;
+  border: 2px solid rgb(134, 134, 9);
+  border-radius: 20px;
+  text-align: center;
+  font-size: 10px;
+}
+.low {
+  background-color: lightskyblue;
+  width: 50px;
+  border: 2px solid blue;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.sec p:last-child {
+  font-size: small;
+}
+
+.delete {
+   border: none;
+   transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
+.delete:hover{
+  transform: scale(1.5);
+}
+
+.edit {
+  border-radius: 13px;
+  background-color: var(--body);
+  border: 2px solid var(--sideBarcolor);
+  width: 50px;
+  font-size: small;
+}
+
+.edit:hover {
+  background-color: lightblue;
 }
